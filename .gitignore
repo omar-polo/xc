@@ -10,6 +10,7 @@ aclocal.m4
 autom4te.cache
 
 .deps
+compat/.deps
 compile
 config.h
 config.h.in

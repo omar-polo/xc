@@ -15,6 +15,8 @@ bin_PROGRAMS =		xc
 
 xc_SOURCES =		xc.c
 
+LDADD =			$(LIBOBJS)
+
 .PHONY: compile_flags.txt
 compile_flags.txt:
 	printf "%s\n" ${CFLAGS} ${AM_CFLAGS} > $@
