@@ -22,6 +22,10 @@
 #include <paths.h>
 #include <stddef.h>
 
+#ifndef __dead
+#define __dead __attribute__((noreturn))
+#endif
+
 #ifndef _PATH_TTY
 #define _PATH_TTY "/dev/tty"
 #endif
