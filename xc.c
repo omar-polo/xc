@@ -88,6 +88,7 @@ main(int argc, char **argv)
 			break;
 		case 'v':
 			verbose++;
+			break;
 		default:
 			usage();
 		}
