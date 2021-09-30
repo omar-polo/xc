@@ -14,3 +14,7 @@ AM_CFLAGS =		-Wall \
 bin_PROGRAMS =		xc
 
 xc_SOURCES =		xc.c
+
+.PHONY: compile_flags.txt
+compile_flags.txt:
+	printf "%s\n" ${CFLAGS} ${AM_CFLAGS} > $@
