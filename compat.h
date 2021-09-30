@@ -30,6 +30,11 @@
 #define _PATH_TTY "/dev/tty"
 #endif
 
+#ifndef __OpenBSD__
+#define pledge(p, e) 0
+#define unveil(f, p) 0
+#endif
+
 #ifndef HAVE_EXPLICIT_BZERO
 void		 explicit_bzero(void *, size_t);
 #endif

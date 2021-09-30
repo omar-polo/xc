@@ -123,6 +123,12 @@ main(int argc, char **argv)
 
 	explicit_bzero(passbuf, sizeof(passbuf));
 
+	if (unveil("/etc/ssl", "r") == -1)
+		err(1, "unveil");
+
+	if (pledge("stdio rpath inet dns", NULL) == -1)
+		err(1, "pledge");
+
 	if (xmpp_connect_client(conn, host, port, conn_handler, ctx) ==
 	    XMPP_EOK) {
 		xmpp_run(ctx);
