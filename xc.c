@@ -48,6 +48,21 @@ conn_handler(xmpp_conn_t *conn, xmpp_conn_event_t status, int error,
 	}
 }
 
+static xmpp_log_level_t
+verbose_level(void)
+{
+	switch (verbose) {
+	case 0:
+		return XMPP_LEVEL_ERROR;
+	case 1:
+		return XMPP_LEVEL_WARN;
+	case 2:
+		return XMPP_LEVEL_INFO;
+	default:
+		return XMPP_LEVEL_DEBUG;
+	}
+}
+
 static void __dead
 usage(void)
 {
@@ -112,7 +127,7 @@ main(int argc, char **argv)
 			errx(1, "can't read passphrase");
 	}
 
-	log = xmpp_get_default_logger(XMPP_LEVEL_DEBUG);
+	log = xmpp_get_default_logger(verbose_level());
 	if ((ctx = xmpp_ctx_new(NULL, log)) == NULL)
 		err(1, "xmpp_ctx_new");
 
