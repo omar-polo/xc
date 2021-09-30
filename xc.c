@@ -17,7 +17,6 @@
 #include "compat.h"
 
 #include <err.h>
-#include <readpassphrase.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
