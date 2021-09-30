@@ -121,6 +121,8 @@ main(int argc, char **argv)
 	xmpp_conn_set_jid(conn, jid);
 	xmpp_conn_set_pass(conn, password);
 
+	explicit_bzero(passbuf, sizeof(passbuf));
+
 	if (xmpp_connect_client(conn, host, port, conn_handler, ctx) ==
 	    XMPP_EOK) {
 		xmpp_run(ctx);
