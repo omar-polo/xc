@@ -5,6 +5,7 @@ AC_PROG_CC
 AC_USE_SYSTEM_EXTENSIONS
 
 AC_REPLACE_FUNCS([
+	explicit_bzero \
 	getprogname \
 	readpassphrase \
 	strtonum \

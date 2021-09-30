@@ -30,6 +30,10 @@
 #define _PATH_TTY "/dev/tty"
 #endif
 
+#ifndef HAVE_EXPLICIT_BZERO
+void		 explicit_bzero(void *, size_t);
+#endif
+
 #ifndef HAVE_GETPROGNAME
 const char	*getprogname(void);
 #endif
