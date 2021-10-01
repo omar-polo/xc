@@ -23,7 +23,7 @@
 #include <stddef.h>
 
 #ifndef __dead
-#define __dead __attribute__((noreturn))
+#define __dead __attribute__((__noreturn__))
 #endif
 
 #ifndef _PATH_TTY
