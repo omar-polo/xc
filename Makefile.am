@@ -13,7 +13,8 @@ AM_CFLAGS =		-Wall \
 
 bin_PROGRAMS =		xc
 
-xc_SOURCES =		xc.c
+xc_SOURCES =		list.c list.h \
+			xc.c
 
 LDADD =			$(LIBOBJS)
 
