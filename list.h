@@ -17,7 +17,7 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <sys/queue.h>
+#include "compat.h"
 
 #include <stdint.h>
 #include <stdio.h>

@@ -30,6 +30,12 @@
 #define _PATH_TTY "/dev/tty"
 #endif
 
+#ifdef HAVE_QUEUE_H
+#include <sys/queue.h>
+#else
+#include "compat/queue.h"
+#endif
+
 #ifndef __OpenBSD__
 #define pledge(p, e) 0
 #define unveil(f, p) 0

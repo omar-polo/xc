@@ -11,6 +11,25 @@ AC_REPLACE_FUNCS([
 	strtonum \
 ])
 
+AC_MSG_CHECKING([for sys/queue.h with SIMPLEQ_FOREACH_SAFE])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([
+#include <sys/queue.h>
+#include <stddef.h>
+], [
+	SIMPLEQ_HEAD(tailhead, entry) head;
+	struct entry {
+		SIMPLEQ_ENTRY(entry) entries;
+	} *np, *nt;
+	SIMPLEQ_INIT(&head);
+	SIMPLEQ_FOREACH_SAFE(np, &head, entries, nt) {
+		/* nop */ ;
+	}
+	return 0;
+])], [
+	AC_MSG_RESULT(yes)
+	AC_DEFINE([HAVE_QUEUE_H], 1, [QUEUE_H])
+], AC_MSG_RESULT(no))
+
 AC_MSG_CHECKING(for program_invocation_short_name)
 AC_LINK_IFELSE([AC_LANG_SOURCE(
 	[
