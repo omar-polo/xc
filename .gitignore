@@ -3,6 +3,8 @@ compile_flags.txt
 *.o
 xc
 
+list_test
+
 Makefile
 Makefile.in
 
@@ -21,3 +23,6 @@ depcomp
 install-sh
 missing
 stamp-h1
+test-driver
+*.log
+*trs

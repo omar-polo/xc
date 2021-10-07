@@ -19,6 +19,12 @@ xc_SOURCES =		compat.h \
 			list.c list.h \
 			xc.c
 
+check_PROGRAMS =	list_test
+
+list_test_SOURCES =	list_test.c list.c list.h compat.h
+
+TESTS =			$(check_PROGRAMS)
+
 LDADD =			$(LIBOBJS)
 
 .PHONY: compile_flags.txt
