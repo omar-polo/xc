@@ -15,7 +15,8 @@ bin_PROGRAMS =		xc
 
 EXTRA_xc_SOURCES =	compat/queue.h
 
-xc_SOURCES =		list.c list.h \
+xc_SOURCES =		compat.h \
+			list.c list.h \
 			xc.c
 
 LDADD =			$(LIBOBJS)
