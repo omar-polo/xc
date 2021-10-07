@@ -178,9 +178,11 @@ parse_list(char *line, struct listhead *h)
 void
 free_list(struct listhead *h)
 {
-	struct item	*i, *it;
+	struct item	*i;
 
-	SIMPLEQ_FOREACH_SAFE(i, h, items, it) {
+	while (!SIMPLEQ_EMPTY(h)) {
+		i = SIMPLEQ_FIRST(h);
+		SIMPLEQ_REMOVE_HEAD(h, items);
 		free(i);
 	}
 }
